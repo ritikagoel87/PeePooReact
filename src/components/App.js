@@ -5,6 +5,9 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <Home />
+      <Amenities />
+      <Bookings />
     </div>
   );
 }
