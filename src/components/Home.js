@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
+import Login from './Login'
 
 class Home extends Component {
   render() {
     return (
       <div>
-      <Navbar />
-        Hello On Home Page
+        <Navbar />
+        
       </div>
     );
   }
