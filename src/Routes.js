@@ -14,6 +14,7 @@ import Users from './components/Users';
 import Payments from './components/Payments';
 import Locations from './components/Locations';
 import Amenities from './components/Amenities';
+import SearchForm from './components/SearchForm';
 
 const Routes = (
   <Router>
