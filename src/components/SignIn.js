@@ -1,19 +1,19 @@
 import * as React from 'react';
 
 const Login = () => (
-  <div>
-    <h1>Login</h1>
+  <div className="container">
+    <h1>Sign In</h1>
     <form>
       <div className="form-group">
-        <label for="exampleInputEmail1">Email</label>
+        <label>Email</label>
         <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div className="form-group">
-        <label for="exampleInputPassword1">Password</label>
+        <label>Password</label>
         <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
       </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
+      <button type="submit" className="btn btn-primary">Sign In</button>
     </form>
   </div>
 );

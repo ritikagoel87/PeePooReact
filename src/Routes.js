@@ -14,7 +14,8 @@ import Users from './components/Users';
 import Payments from './components/Payments';
 import Locations from './components/Locations';
 import Amenities from './components/Amenities';
-import Login from './components/Login';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
 import SearchForm from './components/SearchForm';
 
 const Routes = (
@@ -33,7 +34,8 @@ const Routes = (
       <Route exact path="/payments" component={ Payments } />
       <Route exact path="/locations" component={ Locations } />
       <Route exact path="/amenities" component={ Amenities } />
-      <Route exact path="/login" component={ Login } />
+      <Route exact path="/sign_in" component={ SignIn } />
+      <Route exact path="/sign_up" component= { SignUp } />
     </div>
   </Router>
 );

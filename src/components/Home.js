@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
-import Login from './Login'
 import SearchForm from './SearchForm';
 import { Link } from 'react-router-dom';
 

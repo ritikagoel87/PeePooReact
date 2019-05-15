@@ -38,10 +38,10 @@ class Navbar extends Component {
         <div id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to="/login" className="nav-link">Sign In </Link>
+              <Link to="/Sign_in" className="nav-link">Sign In </Link>
             </li>
             <li className="nav-item">
-             <a className="nav-link" href="#">Sign Up </a>
+             <Link to="/Sign_up"className="nav-link">Sign Up </Link>
             </li>
           </ul>
         </div>
