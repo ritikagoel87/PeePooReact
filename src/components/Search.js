@@ -29,19 +29,19 @@ class Search extends Component {
         shower: shower,
         baby: baby
       });
+
+      let resultsArray = [];
       axios.get(SERVER_URL, {params: {toilet: toilet, bath: bath, shower: shower, baby: baby, suburb: suburb}}).then((result) =>{
-        let resultArray = [];
         result.data.map( (r) => {
-          resultArray.push(r);
+          let resultObject = {amenity: r};
           let location = LOCATION_URL + r.location_id + '.json';
           axios.get(location).then( (res) => {
-            console.log(res);
-            resultArray.push('location');
-            resultArray['location'].push(res.data);
+            console.log(res.data);
+            resultObject.location = res.data;
           });
-          this.setState({results: resultArray});
+          resultsArray.push(resultObject);
         });
-        this.setState({results: result.data});
+        this.setState({results: resultsArray});
       });
     }
 
@@ -113,11 +113,16 @@ class SearchForm extends Component {
 
 class SearchResults extends Component {
   render() {
+    console.log(this.props.results);
     return(
       <div className="container">
         {this.props.results.map( (r) =>
-          <div key={r.id}>
-            <p>Toilet: </p>
+          <div key={r.amenity.id}>
+            <p>Rating: {r.amenity.rating}</p>
+            <p>Price: ${r.amenity.price} per 10mins</p>
+            <p>Type Of House: {r.amenity.typeOfHouse}</p>
+            <p><a href={"#/search/" + r.amenity.id}>More Details >>></a></p>
+            <p><img src={r.amenity.image} /></p>
           </div>
        )}
       </div>
