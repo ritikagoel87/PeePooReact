@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const SERVER_URL = 'http://localhost:3000/bookings.json';
+const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/bookings.json';
 
 
 class Bookings extends Component {
@@ -17,7 +17,6 @@ class Bookings extends Component {
       axios.get(SERVER_URL).then((results) => {
         console.log(results.data);
         this.setState({bookings: results.data});
-        
       });
     };
     fetchBookings();

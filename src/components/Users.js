@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const SERVER_URL = 'http://localhost:3000/users.json';
+const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/users.json';
 
 class Users extends Component {
   constructor() {
@@ -16,7 +16,6 @@ class Users extends Component {
       axios.get(SERVER_URL).then((results) => {
         console.log(results.data);
         this.setState({users: results.data});
- 
       });
     };
     fetchUsers();
@@ -59,7 +58,8 @@ class Gallery extends Component {
     <td >{f.email}</td>
     <td >{f.admin}</td>
     <td>{f.owner}</td>
-  </tr>)}
+  </tr>)
+}
   </tbody>
 </table>
       </div>
