@@ -7,21 +7,19 @@ class Home extends Component {
   render() {
     return (
       <div>
-      <Navbar />
-      <SearchForm onSubmit={ this.fetchSerchForm}/>
-      <div>
-      <h1> About Us </h1>
-      <p> We are the best app in the world. Use our toilets and be happy! </p>
-      <p>
-          <Link to="/amenities">Amenities</Link>
-          <br/>
-          <Link to="/bookings">Bookings</Link>
-          <br/>
-          <Link to="/locations">Locations</Link>
-          <br/>
-          <Link to="/users">Users</Link>
-
-        </p>
+        <Navbar />
+        <div className="jumbotron">
+          <h1 className="display-4"> About Us </h1>
+          <p className="lead"> We are the best app in the world. Use our toilets and be happy! </p>
+          <hr className="my-4"></hr>
+          <p>Find the closiest one!</p>
+          <Link className="btn btn-info btn-lg" to="/search" role="button">Search</Link>
+        </div>
+        <div>
+          <Link to="/amenities" className="btn btn-light btn-sm">All Amenities</Link>
+          <Link to="/bookings" className="btn btn-light btn-sm">All Bookings</Link>
+          <Link to="/locations" className="btn btn-light btn-sm">All Locations</Link>
+          <Link to="/users" className="btn btn-light btn-sm">All Users</Link>
         </div>
       </div>
     );

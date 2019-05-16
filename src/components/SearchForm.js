@@ -62,20 +62,42 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <div>
-      <h1> Search Amenities</h1>
-      <form action="/search">
-         <br/>
-        Suburb: <input type="search" placeholder="Sydney" required onInput={ this._handleInputSuburb } />
-        Toilet: <input type="checkbox" onInput={ this._handleInputToilet } />
-        Bath: <input type="checkbox" onInput={ this._handleInputBath } />
-        Shower: <input type="checkbox" onInput={ this._handleInputShower } />
-        Baby: <input type="checkbox" onInput={ this._handleInputBaby } />
-        <input type="submit" value="Search" />
-      </form>
+      <div className="jumbotron">
+        <h1 className="display-3"> Search Amenities</h1>
+        <form action="/search" className="form-inline">
+          <div className="form-group mb-2">
+            <label className="sr-only">Suburb:</label>
+            <input readonly className="form-control-plaintext" type="search" placeholder="Sydney" onInput={ this._handleInputSuburb }></input>
+          </div>
+          <div className="form-group mb-2 form-check">
+            <label className="sr-only">Toilet</label> 
+            <input type="checkbox" className="form-check-input position-static"></input>
+          </div>
+
+          Suburb: <input type="search" placeholder="Sydney" required onInput={ this._handleInputSuburb } />
+          Toilet: <input type="checkbox" onInput={ this._handleInputToilet } />
+          Bath: <input type="checkbox" onInput={ this._handleInputBath } />
+          Shower: <input type="checkbox" onInput={ this._handleInputShower } />
+          Baby: <input type="checkbox" onInput={ this._handleInputBaby } />
+          <input type="submit" value="Search" />
+        </form>
       </div>
     );
   }
 }
 
 export default SearchForm;
+{/* <div class="form-check">
+  <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+</div>
+<form class="form-inline">
+  <div class="form-group mb-2">
+    <label for="staticEmail2" class="sr-only">Email</label>
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="inputPassword2" class="sr-only">Password</label>
+    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+</form> */}
