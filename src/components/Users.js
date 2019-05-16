@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const SERVER_URL = 'http://localhost:3000/users.json';
+const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/users.json';
 
 class Users extends Component {
   constructor() {
