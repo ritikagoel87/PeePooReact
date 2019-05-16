@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const SERVER_URL = 'http://localhost:3000/amenities.json';
+const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/amenities.json';
 
 class Amenities extends Component {
   constructor() {

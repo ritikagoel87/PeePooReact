@@ -17,6 +17,7 @@ import Amenities from './components/Amenities';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import SearchForm from './components/SearchForm';
+import BookingForm from './components/BookingForm'
 
 const Routes = (
   <Router>
@@ -29,13 +30,16 @@ const Routes = (
       <Route exact path="/booking/:id" component={ BookingPayment } />
       <Route exact path="/booking/:id/confirmation" component={ BookingConfirmation } />
       <Route exact path="/bookings" component={ Bookings } />
-      <Route exact path="/new_amentiy" component={ NewAmenity } />
+      <Route exact path="/new_amenity" component={ NewAmenity } />
       <Route exact path="/users" component={ Users } />
       <Route exact path="/payments" component={ Payments } />
       <Route exact path="/locations" component={ Locations } />
       <Route exact path="/amenities" component={ Amenities } />
       <Route exact path="/sign_in" component={ SignIn } />
       <Route exact path="/sign_up" component= { SignUp } />
+      <Route exact path="/bookingForm" component= { BookingForm } />
+
+
     </div>
   </Router>
 );

@@ -3,7 +3,7 @@ import './../App.css';
 import './../index.css';
 import axios from 'axios';
 
-const SERVER_URL = 'http://localhost:3000/home.json';
+const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/search.json';
 
 
 class SearchForm extends Component {
@@ -23,35 +23,40 @@ class SearchForm extends Component {
   }
 
   _handleInputToilet(event) {
-    this.setState({toilet: event.target.value});
+    if (event.target.checked === true) {
+      this.setState({toilet: 1});
+    }
   }
 
   _handleInputBath(event) {
-    this.setState({bath: event.target.value});
+    if (event.target.checked === true) {
+      this.setState({bath: 1});
+    }
   }
 
   _handleInputShower(event) {
-    this.setState({shower: event.target.value});
+    if (event.target.checked === true) {
+      this.setState({shower: 1});
+    }
   }
 
   _handleInputBaby(event) {
-    this.setState({baby: event.target.value});
+    if (event.target.checked === true) {
+      this.setState({baby: 1});
+    }
   }
 
   _handleSubmit(event) {
     event.preventDefault();
-    this.props.onSubmit( this.state.suburb, this.state.toilet, this.state.bath, this.state.shower, this.state.baby );
-    this.setState({suburb: ''});
-    this.setState({toilet: 0});
-    this.setState({bath: 0});
-    this.setState({shower: 0});
-    this.setState({baby: 0});
+    console.log(this.state.toilet);
+    this.fetchSerchForm( this.state.suburb, this.state.toilet, this.state.bath, this.state.shower, this.state.baby );
   }
 
   fetchSerchForm(suburb, toilet, bath, shower, baby) {
       //console.log(flightnumber, flightdate, origin_code, destination_code, planename, seats);
-      axios.get(SERVER_URL, {suburb: suburb, toilet: toilet, bath: bath, shower: shower, baby: baby}).then((result) =>{
-        this.setState({suburb: result.data});
+      axios.get(SERVER_URL, {params: {suburb: suburb, toilet: toilet, bath: bath, shower: shower, baby: baby}}).then((result) =>{
+        // this.setState({suburb: result.data});
+        console.log(result);
       });
     }
 
@@ -59,10 +64,10 @@ class SearchForm extends Component {
     return (
       <div>
       <h1> Search Amenities</h1>
-      <form onSubmit={ this._handleSubmit }>
+      <form action="/search">
          <br/>
         Suburb: <input type="search" placeholder="Sydney" required onInput={ this._handleInputSuburb } />
-        Toilet: <input type="checkbox" required onInput={ this._handleInputToilet } />
+        Toilet: <input type="checkbox" onInput={ this._handleInputToilet } />
         Bath: <input type="checkbox" onInput={ this._handleInputBath } />
         Shower: <input type="checkbox" onInput={ this._handleInputShower } />
         Baby: <input type="checkbox" onInput={ this._handleInputBaby } />
