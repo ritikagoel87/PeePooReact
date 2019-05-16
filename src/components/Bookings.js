@@ -17,7 +17,6 @@ class Bookings extends Component {
       axios.get(SERVER_URL).then((results) => {
         console.log(results.data);
         this.setState({bookings: results.data});
-        setTimeout(fetchBookings, 3000);
       });
     };
     fetchBookings();

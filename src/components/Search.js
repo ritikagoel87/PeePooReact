@@ -2,18 +2,44 @@ import React, { Component } from 'react';
 import Navbar from './Navbar';
 import axios from 'axios';
 
-const SERVER_URL = 'http://localhost:3000/search.json';
+// const SERVER_URL = 'http://localhost:3000/search.json';
+const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/search.json';
+const LOCATION_URL = 'https://pee-poo-rails.herokuapp.com/locations/';
 
 class Search extends Component {
   constructor() {
     super();
-    this.state = { results: [] };
+    this.state = {
+      results: [],
+      suburb: '',
+      toilet: 0,
+      bath: 0,
+      shower: 0,
+      baby: 0
+    };
     this.fetchSerchForm = this.fetchSerchForm.bind(this);
   }
 
   fetchSerchForm(suburb, toilet, bath, shower, baby) {
-      this.setState({results: []});
-      axios.get(SERVER_URL, {suburb: suburb, toilet: toilet, bath: bath, shower: shower, baby: baby}).then((result) =>{
+      this.setState({
+        results: [],
+        suburb: suburb,
+        toilet: toilet,
+        bath: bath,
+        shower: shower,
+        baby: baby
+      });
+      axios.get(SERVER_URL, {params: {toilet: toilet, bath: bath, shower: shower, baby: baby, suburb: suburb}}).then((result) =>{
+        let resultArray = [];
+        result.data.map( (r) => {
+          resultArray.push(r);
+          let location = LOCATION_URL + r.location_id + '.json';
+          axios.get(location).then( (res) => {
+            console.log(res);
+            resultArray.push(res.data);
+          });
+          this.setState({results: resultArray});
+        });
         this.setState({results: result.data});
       });
     }
@@ -90,6 +116,7 @@ class SearchResults extends Component {
       <div className="container">
         {this.props.results.map( (r) =>
           <div key={r.id}>
+            <p>Toilet: </p>
           </div>
        )}
       </div>

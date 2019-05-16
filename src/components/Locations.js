@@ -16,7 +16,6 @@ class Locations extends Component {
       axios.get(SERVER_URL).then((results) => {
         console.log(results.data);
         this.setState({locations: results.data});
-        setTimeout(fetchLocations, 3000);
       });
     };
     fetchLocations();
