@@ -44,10 +44,6 @@ class SignUp extends Component {
     e.target.checked === true ? this.setState({owner: true}) : this.setState({owner: false});
   }
 
-  wtf() {
-    debugger;
-  }
-
   handleSubmit = (e) => {
     e.preventDefault();
     axios.post(PEEPOO_URL, {

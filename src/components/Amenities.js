@@ -16,7 +16,7 @@ class Amenities extends Component {
       axios.get(SERVER_URL).then((results) => {
         console.log(results.data);
         this.setState({amenities: results.data});
-        setTimeout(fetchAmenities, 3000);
+        
       });
     };
     fetchAmenities();

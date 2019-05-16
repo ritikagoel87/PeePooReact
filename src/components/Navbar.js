@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const PEEPOO_URL = "https://pee-poo-rails.herokuapp.com/users.json"
+//const PEEPOO_URL = "https://pee-poo-rails.herokuapp.com/users.json"
 
 class Navbar extends Component {
   
-  constructor() {
+ /*  constructor() {
     super();
     this.state = {
     users: []
@@ -21,11 +21,10 @@ class Navbar extends Component {
       this.setState({users: data})
       console.log(this.state.users)
     })
-  }
+  } */
  
   //check if already in show the user name and Sing out
-
-  
+ 
 
 
   render() {
@@ -67,20 +66,3 @@ class Navbar extends Component {
 }
 
 export default Navbar;
-/* 
-<div class="my-2 my-lg-0">
-          <ul class="navbar-nav mr-auto">
-            <% if @current_user.present? %>
-              <li class="nav-item">
-                <%= link_to "Sign out", login_path, :method => 'delete', :class => 'nav-link' %>
-              </li>
-            <% else %>
-              <li class="nav-item"><%= link_to 'Sign Up', new_user_path, :class => 'nav-link' %></li>
-              <li class="nav-item"><%= link_to 'Sign In', login_path, :class => 'nav-link' %></li>
-            <% end %>
-          </ul>
-        </div>
-         <div class="container">
-      <% if @current_user.present? && @current_user.admin? %>
-        <%= link_to "All users", users_path, :class => 'btn btn-info mb-3'%>
- */

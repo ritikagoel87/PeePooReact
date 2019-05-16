@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-const Login = () => (
+
+const SignIn = () => (
   <div className="container">
     <h1>Sign In</h1>
     <form>
@@ -18,4 +19,4 @@ const Login = () => (
   </div>
 );
 
-export default Login;
+export default SignIn;
