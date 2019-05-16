@@ -22,7 +22,7 @@ class Navbar extends Component {
       console.log(this.state.users)
     })
   }
-
+ 
   //check if already in show the user name and Sing out
 
   
