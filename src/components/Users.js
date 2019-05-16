@@ -58,7 +58,8 @@ class Gallery extends Component {
     <td >{f.email}</td>
     <td >{f.admin}</td>
     <td>{f.owner}</td>
-  </tr>)}
+  </tr>)
+}
   </tbody>
 </table>
       </div>
