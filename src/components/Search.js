@@ -36,7 +36,8 @@ class Search extends Component {
           let location = LOCATION_URL + r.location_id + '.json';
           axios.get(location).then( (res) => {
             console.log(res);
-            resultArray.push(res.data);
+            resultArray.push('location');
+            resultArray['location'].push(res.data);
           });
           this.setState({results: resultArray});
         });
