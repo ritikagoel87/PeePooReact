@@ -16,7 +16,6 @@ class Users extends Component {
       axios.get(SERVER_URL).then((results) => {
         console.log(results.data);
         this.setState({users: results.data});
-        setTimeout(fetchUsers, 3000);
       });
     };
     fetchUsers();
