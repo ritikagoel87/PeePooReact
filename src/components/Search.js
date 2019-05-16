@@ -47,7 +47,7 @@ class Search extends Component {
   render() {
     return (
       <div>
-      <Navbar />
+        <Navbar />
         <SearchForm onSubmit={ this.fetchSerchForm } />
         <SearchResults results= { this.state.results } />
       </div>
@@ -95,7 +95,7 @@ class SearchForm extends Component {
   render() {
     return (
       <div>
-      <h1> Search Amenities</h1>
+      <h1> Search Amenities...</h1>
       <form onSubmit={ this._handleSubmit }>
          <br/>
         Suburb: <input type="search" placeholder="Sydney" required onInput={ this._handleInputSuburb } />

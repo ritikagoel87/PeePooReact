@@ -33,7 +33,10 @@ class Navbar extends Component {
       
       <div>
       <nav className="navbar navbar-light bg-light">
-        <p className="navbar-brand">PeePoo</p>
+        <Link className="navbar-brand" to="/">PeePoo</Link>
+        <div className="navbar-nav">
+          <Link to="/search" className="nav-link">Search Amenity</Link> 
+        </div>
         <div id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
