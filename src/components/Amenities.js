@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from './Navbar';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Gallery from './Gallery';
 
 const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/amenities.json';
 
@@ -11,67 +12,30 @@ class Amenities extends Component {
     this.state = {
       amenities: []
     };
+  }
 
-    const fetchAmenities = () => {
-      axios.get(SERVER_URL).then((results) => {
-        console.log(results.data);
-        this.setState({amenities: results.data});
+  componentDidMount() {
+    axios.get(SERVER_URL).then((results) => {
+      this.setState({
+        amenities: results.data
       });
-    };
-    fetchAmenities();
+    });
   }
 
 
   render () {
-
+    const {amenities} = this.state;
       return (
         <div className="amenities">
-          <h1>All Amenities</h1>
-          <Gallery amenities={ this.state.amenities}/>
+          <Navbar />
+          <h1 className="d-flex justify-content-center">All Amenities</h1>
+          {
+            amenities.length > 0 ? <Gallery amenities={amenities}/> : <div>Loading...</div>
+          }
         </div>
       );
 
   }
 };
-
-class Gallery extends Component {
-  render() {
-    return (
-      <div className="amenities">
-      <h2>Amenities</h2>
-        <table className="amenitytable">
-        <thead>
-        <tr>
-          <th>Image</th>
-          <th>Location</th>
-          <th>Price</th>
-          <th>Rating</th>
-          <th>Toilet</th>
-          <th>Bath</th>
-          <th>Shower</th>
-          <th>Baby</th>
-          </tr>
-          </thead>
-
-            <tbody>
-{this.props.amenities.map((f) =>
-  <tr key={f.id}>
-    <td>{f.image}</td>
-    <td>{f.location_id}</td>
-    <td >{f.price}</td>
-    <td >{f.rating}</td>
-    <td>{f.toilet}</td>
-    <td>{f.bath}</td>
-    <td>{f.shower}</td>
-    <td>{f.baby}</td>
-  </tr>)}
-  </tbody>
-</table>
-      </div>
-
-    );
-  }
-}
-
 
 export default Amenities;
