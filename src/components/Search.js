@@ -137,16 +137,23 @@ class SearchResults extends Component {
     console.log(this.props.results);
     return(
       <div className="container">
-        {this.props.results.map( (r) =>
-          <div key={r.amenity.id}>
-            <p>Rating: {r.amenity.rating}</p>
-            <p>Price: ${r.amenity.price} per 10mins</p>
-            <p>Type Of House: {r.amenity.typeOfHouse}</p>
-            <p><a href={"#/search/" + r.amenity.id}>More Details >>></a></p>
-            <p><img src={r.amenity.image} /></p>
-          </div>
-       )}
+        <div className="row">
+          <div className="col-md">
+              {this.props.results.map( (r) =>
+                <div key={r.amenity.id} className="card">
+                  <img clasName="card-img-top" src={r.amenity.image} />
+                  <div className="card-body">
+                    <h5 classNamr="card-title">Rating: {r.amenity.rating}</h5>
+                    <p className="card-text">Price: ${r.amenity.price} per 10mins</p>
+                    <p className="card-text">Type Of House: {r.amenity.typeOfHouse}</p>
+                    <a className="btn btn-info" href={"#/search/" + r.amenity.id}>More Details >>></a>
+                  </div>
+                </div>
+              )}
+          </div>  
+        </div>
       </div>
+      
     )
   }
 }
