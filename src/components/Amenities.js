@@ -5,6 +5,7 @@ import axios from 'axios';
 import Gallery from './Gallery';
 
 const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/amenities.json';
+const LOCATION_URL = 'https://pee-poo-rails.herokuapp.com/locations/';
 
 class Amenities extends Component {
   constructor() {
@@ -15,10 +16,18 @@ class Amenities extends Component {
   }
 
   componentDidMount() {
+    let resultsArray = [];
     axios.get(SERVER_URL).then((results) => {
-      this.setState({
-        amenities: results.data
+      results.data.map( (r) => {
+        let resultObject = {amenity: r};
+        let location = LOCATION_URL + r.location_id + '.json';
+        axios.get(location).then( (res) => {
+          console.log(res.data);
+          resultObject.location = res.data;
+        });
+        resultsArray.push(resultObject);
       });
+      this.setState({amenities: resultsArray});
     });
   }
 
