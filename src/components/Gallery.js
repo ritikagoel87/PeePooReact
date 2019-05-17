@@ -8,17 +8,17 @@ const Gallery = (props) => {
                         <div className="d-flex">
                             <div>
                                 <div className="d-flex flex-column">
-                                    <label>Location: <a href={"#/search/" + f.location_id}>Details</a></label>
-                                    <label>Price: {f.price}</label>
-                                    <label>Rating: {f.rating}</label>
-                                    <label>Toilet: {f.toilet}</label>
-                                    <label>Bath: {f.bath}</label>
-                                    <label>Shower: {f.shower}</label>
-                                    <label>Baby: {f.baby}</label>
+                                    <label>Price: {f.amenity.price}</label>
+                                    <label>Rating: {f.amenity.rating}</label>
+                                    <label>Toilet: {f.amenity.toilet}</label>
+                                    <label>Bath: {f.amenity.bath}</label>
+                                    <label>Shower: {f.amenity.shower}</label>
+                                    <label>Baby: {f.amenity.baby}</label>
+                                    <label><a href={"#/search/" + f.amenity.id}>Details >>></a></label>
                                 </div>
                             </div>
                             <picture>
-                                <a target="_blank" rel="noopener noreferrer"><img className="img-fluid img-thumbnail img-rounded" src={f.image} alt=""/></a>
+                                <a target="_blank" rel="noopener noreferrer"><img className="img-fluid img-thumbnail img-rounded" src={f.amenity.image} alt=""/></a>
                             </picture>
                         </div>
                     )
