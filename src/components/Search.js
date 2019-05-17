@@ -95,17 +95,38 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <div>
-      <h1> Search Amenities...</h1>
-      <form onSubmit={ this._handleSubmit }>
-         <br/>
-        Suburb: <input type="search" placeholder="Sydney" required onInput={ this._handleInputSuburb } />
-        Toilet: <input type="checkbox" onInput={ this._handleInputToilet } />
-        Bath: <input type="checkbox" onInput={ this._handleInputBath } />
-        Shower: <input type="checkbox" onInput={ this._handleInputShower } />
-        Baby: <input type="checkbox" onInput={ this._handleInputBaby } />
-        <input type="submit" value="Search" />
-      </form>
+      <div className="jumbotron">
+        <div className="container">
+          <h1 className="display-5"> Search Amenities</h1>
+          <div>
+            <form action="/search" className="form mb-2" onSubmit={ this._handleSubmit }>
+              <div className="form">
+                <label>Suburb</label>
+                <input className="form-control" type="search" placeholder="Sydney" onInput={ this._handleInputSuburb }></input>
+              </div>
+              <div className="form-check">
+                <input type="checkbox" onInput={ this._handleInputToilet}></input>
+                <label>Toilet</label> 
+              </div>
+              <div className="form-check">
+                <input type="checkbox"  onInput={ this._handleInputBath}></input>
+                <label>Bath</label> 
+              </div>
+              <div className="form-check">
+                <input  type="checkbox"  onInput={ this._handleInputShower}></input>
+                <label>Shower</label> 
+              </div>
+              <div className="form-check ">
+                <input type="checkbox" onInput={ this._handleInputBaby}></input>
+                <label>Baby</label> 
+              </div>
+              <br/>
+              <div className="col-sm-10">
+                <button type="submit" value="Search" className="btn btn-info">Search</button> 
+              </div>
+            </form>
+          </div> 
+        </div>
       </div>
     );
   }
@@ -116,16 +137,23 @@ class SearchResults extends Component {
     console.log(this.props.results);
     return(
       <div className="container">
-        {this.props.results.map( (r) =>
-          <div key={r.amenity.id}>
-            <p>Rating: {r.amenity.rating}</p>
-            <p>Price: ${r.amenity.price} per 10mins</p>
-            <p>Type Of House: {r.amenity.typeOfHouse}</p>
-            <p><a href={"#/search/" + r.amenity.id}>More Details >>></a></p>
-            <p><img src={r.amenity.image} /></p>
-          </div>
-       )}
+        <div className="row">
+          <div className="col-md">
+              {this.props.results.map( (r) =>
+                <div key={r.amenity.id} className="card">
+                  <img clasName="card-img-top" src={r.amenity.image} />
+                  <div className="card-body">
+                    <h5 classNamr="card-title">Rating: {r.amenity.rating}</h5>
+                    <p className="card-text">Price: ${r.amenity.price} per 10mins</p>
+                    <p className="card-text">Type Of House: {r.amenity.typeOfHouse}</p>
+                    <a className="btn btn-info" href={"#/search/" + r.amenity.id}>More Details >>></a>
+                  </div>
+                </div>
+              )}
+          </div>  
+        </div>
       </div>
+      
     )
   }
 }

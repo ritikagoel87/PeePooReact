@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/users.json';
 
@@ -26,6 +26,7 @@ class Users extends Component {
 
       return (
         <div className="users">
+          <Navbar />
           <h1>All Users</h1>
           <Gallery users={ this.state.users}/>
         </div>

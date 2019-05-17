@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Amenities from './Amenities'
 import Users from './Users'
+import Navbar from './Navbar'
 
 const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/bookings.json';
 // const SERVER_URL = 'http://localhost:3000/bookings.json';
@@ -54,6 +55,7 @@ class BookingForm extends Component {
   render() {
     return (
       <div>
+      <Navbar />
       <h1> Make Booking</h1>
       <form onSubmit={ this._handleSubmit }>
          <br/>

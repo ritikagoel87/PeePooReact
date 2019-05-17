@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/bookings.json';
 
@@ -27,6 +27,7 @@ class Bookings extends Component {
 
       return (
         <div className="bookings">
+          <Navbar />
           <h1>All Bookings</h1>
           <Gallery bookings={ this.state.bookings}/>
         </div>

@@ -61,7 +61,7 @@ class SignUp extends Component {
   }
 
   render() {
-    const {fname, lname, email, password, password_confirmation, owner} = this.state;
+    const {fname, lname, email, password, password_confirmation} = this.state;
     return(
       <div>
         <Navbar />

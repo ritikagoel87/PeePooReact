@@ -60,24 +60,38 @@ class SearchForm extends Component {
   render() {
     return (
       <div className="jumbotron">
-        <h1 className="display-3"> Search Amenities</h1>
-        <form action="/search" className="form-inline">
-          <div className="form-group mb-2">
-            <label className="sr-only">Suburb:</label>
-            <input readonly className="form-control-plaintext" type="search" placeholder="Sydney" onInput={ this._handleInputSuburb }></input>
+        <div className="container">
+          <h1 className="display-5"> Search Amenities</h1>
+          <div>
+            <form action="/search" className="form mb-2" onSubmit={ this._handleSubmit }>
+              <div className="form">
+                <label>Suburb</label>
+                <input className="form-control" type="search" placeholder="Sydney" onInput={ this._handleInputSuburb }></input>
+              </div>
+              <div className="form-check">
+                <input type="checkbox" onInput={ this._handleInputToilet}></input>
+                <label>Toilet</label>
+              </div>
+              <div className="form-check">
+                <input type="checkbox"  onInput={ this._handleInputBath}></input>
+                <label>Bath</label>
+              </div>
+              <div className="form-check">
+                <input  type="checkbox"  onInput={ this._handleInputShower}></input>
+                <label>Shower</label>
+              </div>
+              <div className="form-check ">
+                <input type="checkbox" onInput={ this._handleInputBaby}></input>
+                <label>Baby</label>
+              </div>
+              <br/>
+              <div className="col-sm-10">
+                <button type="submit" value="Search" className="btn btn-info">Search</button>
+              </div>
+            </form>
           </div>
-          <div className="form-group mb-2 form-check">
-            <label className="sr-only">Toilet</label>
-            <input type="checkbox" className="form-check-input position-static"></input>
-          </div>
+        </div>
 
-          Suburb: <input type="search" placeholder="Sydney" required onInput={ this._handleInputSuburb } />
-          Toilet: <input type="checkbox" onInput={ this._handleInputToilet } />
-          Bath: <input type="checkbox" onInput={ this._handleInputBath } />
-          Shower: <input type="checkbox" onInput={ this._handleInputShower } />
-          Baby: <input type="checkbox" onInput={ this._handleInputBaby } />
-          <input type="submit" value="Search" />
-        </form>
       </div>
     );
   }
