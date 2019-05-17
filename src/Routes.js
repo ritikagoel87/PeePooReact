@@ -1,6 +1,5 @@
 import React from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
-
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import DashboardAdmin from './components/DashboardAdmin';
@@ -16,7 +15,6 @@ import Locations from './components/Locations';
 import Amenities from './components/Amenities';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
-import SearchForm from './components/SearchForm';
 import BookingForm from './components/BookingForm'
 
 const Routes = (

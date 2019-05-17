@@ -6,6 +6,7 @@ import './../index.css';
 import Bookings from './Bookings'
 import Amenities from './Amenities'
 import Users from './Users'
+import Navbar from './Navbar'
 
 const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/bookings.json';
 
@@ -44,13 +45,14 @@ class BookingForm extends Component {
   render() {
     return (
       <div>
-      <h1> Make Booking</h1>
-      <form onSubmit={ this._handleSubmit }>
-         <br/>
-        Time from: <input type="time" placeholder="11:00" required onInput={ this._handleInputTimeIn } />
-        Time to: <input type="time" placeholder="11:00" required onInput={ this._handleInputTimeOut } />
-        <input type="submit" value="Book" />
-      </form>
+        <Navbar />
+        <h1> Make Booking</h1>
+        <form onSubmit={ this._handleSubmit }>
+          <br/>
+          Time from: <input type="time" placeholder="11:00" required onInput={ this._handleInputTimeIn } />
+          Time to: <input type="time" placeholder="11:00" required onInput={ this._handleInputTimeOut } />
+          <input type="submit" value="Book" />
+        </form>
       </div>
     );
   }

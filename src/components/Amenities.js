@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import Gallery from './Gallery';
 
 const SERVER_URL = 'https://pee-poo-rails.herokuapp.com/amenities.json';
